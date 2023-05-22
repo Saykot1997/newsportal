@@ -31,7 +31,7 @@ export default function Header() {
         showSideNave &&
         <SideNave toggleShowSidNav={toggleShowSidNav} showSideNave={showSideNave} setShowSideNav={setShowSideNav} />
       }
-      <div className="w-full px-5 xl:w-[1180px] 2xl:w-[1200px] py-2 relative">
+      <div className="w-full px-5 pr-8 xl:w-[1240px] 2xl:w-[1400px] py-2 relative">
         {/* top part start */}
         <div className=" bg-white  flex justify-between items-center">
           <div className="">
@@ -40,7 +40,7 @@ export default function Header() {
             </Link>
           </div>
           <div className=" flex items-center gap-4">
-            <div className=" hidden xl:flex items-center gap-5">
+            <div className=" hidden lg:flex items-center gap-5">
               <a href="http://facebook.com" target="_blank" rel="noopener noreferrer">
                 <BsFacebook />
               </a>
@@ -74,15 +74,15 @@ export default function Header() {
         <div className={`flex justify-between  transition-all duration-200 ease-in-out ${showSubHeader ? "h-0 opacity-0 py-0" : " py-2 h-auto opacity-100"}`}>
           <div className=" flex items-center gap-2">
             <Link to="/news">
-              <span className={`font-semibold inline-block py-2 px-2 text-sm border-b-2 ${location.pathname.includes("news") ? " border-blue-950" : "border-transparent"}  cursor-pointer hover:border-blue-950`}>News</span>
+              <span className={`font-semibold  inline-block py-2 px-2 text-[12px] lg:text-sm border-b-2 ${location.pathname.includes("news") ? " border-blue-950" : "border-transparent"}  cursor-pointer hover:border-blue-950`}>News</span>
             </Link>
             <Link to="/politics">
-              <span className={`font-semibold inline-block py-2 px-2 text-sm border-b-2 ${location.pathname.includes("politics") ? " border-blue-950" : "border-transparent"}  cursor-pointer hover:border-blue-950`}>Politics</span>
+              <span className={`font-semibold  inline-block py-2 px-2 text-[12px] lg:text-sm border-b-2 ${location.pathname.includes("politics") ? " border-blue-950" : "border-transparent"}  cursor-pointer hover:border-blue-950`}>Politics</span>
             </Link>
             <Link to="/culture">
-              <span className={`font-semibold inline-block py-2 px-2 text-sm border-b-2 ${location.pathname.includes("culture") ? " border-blue-950" : "border-transparent"}  cursor-pointer hover:border-blue-950`}>Culture</span>
+              <span className={`font-semibold  inline-block py-2 px-2 text-[12px] lg:text-sm border-b-2 ${location.pathname.includes("culture") ? " border-blue-950" : "border-transparent"}  cursor-pointer hover:border-blue-950`}>Culture</span>
             </Link>
-            <div onClick={toggleShowSidNav} className=" flex gap-2 items-center font-semibold py-2 px-2 text-sm  cursor-pointer border-b-2 border-transparent hover:border-blue-950">
+            <div onClick={toggleShowSidNav} className=" flex gap-2 items-center font-semibold  py-2 px-2 text-[12px] lg:text-sm  cursor-pointer border-b-2 border-transparent hover:border-blue-950">
               <span>More</span>
               <AiOutlinePlus />
             </div>

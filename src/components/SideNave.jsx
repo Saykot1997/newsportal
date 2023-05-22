@@ -96,7 +96,7 @@ export default function SideNave({ showSideNave, setShowSideNav }) {
                         <p className=" font-semibold text-lg ">Subscrib to KnowThis</p>
                         <p className=" text-[12px] text-gray-700 leading-5 mt-1">Quecly get up to speed on the essential news stories you need to know about today</p>
                         <input type="text" placeholder="Type yout email address here" className=" bg-gray-100 group-hover:bg-gray-100 focus:bg-gray-100  p-2 w-full placeholder:text-sm focus:outline-none border-b border-b-transparent focus:border-b-blue-950 transition-transform duration-200 ease-in-out mt-3" />
-                        <button className=" uppercase bg-yellow-200 py-2 w-full mt-2 hover:bg-yellow-500 transition-all duration-200 ease-in-out">Subscribe</button>
+                        <button className=" uppercase bg-yellow-300 py-2 w-full mt-2 hover:bg-yellow-400 transition-all duration-200 ease-in-out">Subscribe</button>
                         <div className=" mt-5 flex items-center">
                             <input type="checkbox" className=" text-gray-400 checked:text-gray-400" />
                             <p className=" ml-2 text-gray-400 text-[12px]">I am 21+ years old</p>

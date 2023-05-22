@@ -42,7 +42,7 @@ export default function Footer() {
             <p className=" text-[12px] text-white cursor-pointer">Tarms + Conditions</p>
           </div>
         </div>
-        <div className=" mt-10 flex justify-center items-center gap-4">
+        <div className=" mt-10 flex justify-center items-center flex-wrap gap-4">
           <p className=" font-bold text-3xl text-white">VOXMEDIA</p>
           <div className=" text-white text-[10px]">
             <p>This publication is a Vox Media network.</p>
