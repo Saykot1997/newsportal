@@ -13,7 +13,7 @@ export default function PoliticsDetails() {
         <div className=" w-full">
             <Header />
             <div className=" pt-28 mt-5 w-full flex justify-center ">
-                <div className=" w-full px-5 xl:w-[1240px] 2xl:w-[1400px]">
+                <div className=" w-full px-5 xl:w-[1200px] 2xl:w-[1300px]">
                     <div className="grid grid-cols-3 gap-10">
                         <div className=" col-span-3 lg:col-span-2">
                             <p className=" text-gray-500 text-[10px] mb-5">News</p>

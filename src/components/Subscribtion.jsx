@@ -1,7 +1,6 @@
-import React from 'react'
 import kowThisPhoto from "../assets/kowthis.jpg"
-import { GoSearch } from 'react-icons/go'
-export default function Subscribtion() {
+
+export default function Subscribtion({ page }) {
     return (
         <div className=''>
             <div className=' flex justify-between items-center'>
@@ -9,9 +8,12 @@ export default function Subscribtion() {
                     <p className=' font-bold text-xl'>NowThis in Your Inbox</p>
                     <p className=' text-gray-600 text-sm'>Quickly get up to speed on the essential news stories you need to know about today.</p>
                 </div>
-                <div>
-                    <img src={kowThisPhoto} alt="" className=' w-20' />
-                </div>
+                {
+                    !page &&
+                    <div>
+                        <img src={kowThisPhoto} alt="" className=' w-20' />
+                    </div>
+                }
             </div>
             <div className=" w-full relative group my-5">
                 <input type="text" placeholder="Your Email Address" className=" bg-gray-100 group-hover:bg-gray-100 focus:bg-gray-100  p-4 w-full placeholder:text-sm focus:outline-none border-b border-b-transparent focus:border-b-blue-950 transition-transform duration-200 ease-in-out" />

@@ -31,7 +31,7 @@ export default function Header() {
         showSideNave &&
         <SideNave toggleShowSidNav={toggleShowSidNav} showSideNave={showSideNave} setShowSideNav={setShowSideNav} />
       }
-      <div className="w-full px-5 pr-8 xl:w-[1240px] 2xl:w-[1400px] py-2 relative">
+      <div className="w-full px-5 pr-8 xl:w-[1240px] 2xl:w-[1300px] py-2 relative">
         {/* top part start */}
         <div className=" bg-white  flex justify-between items-center">
           <div className="">
@@ -59,12 +59,13 @@ export default function Header() {
               <a href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer">
                 <SiTiktok />
               </a>
-
             </div>
-            <div className=" border px-2 py-[6px] cursor-pointer hover:bg-yellow-300 transition-all duration-150 ease-linear flex items-center">
-              <AiOutlineMail className=" text-xs mr-1" />
-              <span className=" text-[11px] font-bold">SUBSCRIB</span>
-            </div>
+            <Link to="/newsletters">
+              <div className=" border px-2 py-[6px] cursor-pointer hover:bg-yellow-300 transition-all duration-150 ease-linear flex items-center">
+                <AiOutlineMail className=" text-xs mr-1" />
+                <span className=" text-[11px] font-bold">SUBSCRIB</span>
+              </div>
+            </Link>
             <AiOutlineMenu className=" cursor-pointer" onClick={toggleShowSidNav} />
           </div>
         </div>

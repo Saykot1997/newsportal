@@ -6,7 +6,6 @@ import { SiTiktok } from "react-icons/si"
 import { Link } from "react-router-dom"
 import { GoSearch } from "react-icons/go"
 import Section from "./Section"
-import voxmidiaPhoto from "../assets/voxmidia.svg"
 
 export default function SideNave({ showSideNave, setShowSideNav }) {
     const [right, setRight] = useState(true)
@@ -126,7 +125,9 @@ export default function SideNave({ showSideNave, setShowSideNav }) {
                     </div>
                     <div className=" mt-5">
                         <p className=" text-[12px] text-gray-500 cursor-pointer">Cookie Settings</p>
-                        <p className=" text-[12px] text-gray-600 cursor-pointer mt-4">NewsLetter</p>
+                        <Link to="/newsletters">
+                            <p className=" text-[12px] text-gray-600 cursor-pointer mt-4">NewsLetter</p>
+                        </Link>
                         <p className=" text-[12px] text-gray-600 cursor-pointer mt-4">Accessability</p>
                         <p className=" text-[12px] text-gray-600 cursor-pointer mt-4">Advartise With Us</p>
                         <p className=" text-[12px] text-gray-600 cursor-pointer mt-4">Career</p>

@@ -17,7 +17,7 @@ export default function News() {
           </div>
         </div>
         <div className=" mt-5 w-full flex justify-center ">
-          <div className=" w-full px-5 xl:w-[1240px] 2xl:w-[1400px]">
+          <div className=" w-full px-5 xl:w-[1200px] 2xl:w-[1300px]">
             <div className="grid grid-cols-3">
               <div className=" col-span-3 lg:col-span-2">
                 <Link to="/politics/details">

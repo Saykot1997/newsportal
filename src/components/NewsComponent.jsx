@@ -1,7 +1,4 @@
-import React from 'react'
 import newsImage from "../assets/news.jpg"
-import { Link } from 'react-router-dom'
-
 
 export default function NewsComponent() {
     return (

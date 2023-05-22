@@ -28,7 +28,7 @@ export default function Section({ data }) {
                     {
                         data.options.map((option, index) => {
                             return (
-                                <Link to={option.link} className=' text-sm block first:pt-3 pb-3 hover:text-gray-500 transition-all duration-150 ease-in'>{option.title}</Link>
+                                <Link key={index} to={option.link} className=' text-sm block first:pt-3 pb-3 hover:text-gray-500 transition-all duration-150 ease-in'>{option.title}</Link>
                             )
                         })
                     }

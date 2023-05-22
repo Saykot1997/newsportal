@@ -1,4 +1,3 @@
-import React from 'react'
 import mastWatchPhoto from "../assets/mustwatch.jpg"
 
 export default function MustWatch() {
