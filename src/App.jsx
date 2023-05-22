@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
-import News from './pages/news';
+import News from './pages/News';
 import Politics from './pages/Politics';
 import Culture from './pages/Culture';
 
