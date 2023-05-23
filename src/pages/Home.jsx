@@ -6,6 +6,7 @@ import Subscribtion from "../components/Subscribtion";
 import mustWatchImage from "../assets/mustwatchhome.jpg"
 import heroImage from "../assets/hero.jpg"
 import featureImage from "../assets/features.jpg"
+import Caradual from "../components/Caradual";
 
 export default function Home() {
   return (
@@ -119,7 +120,7 @@ export default function Home() {
         </div>
 
         <div className=" w-full py-10 bg-black my-10">
-          <div className=" grid grid-cols-5 gap-5 pl-10 ">
+          {/* <div className=" grid grid-cols-5 gap-5 pl-10 ">
             <div className=" w-full">
               <img src={featureImage} alt="" className=" w-full object-cover" />
             </div>
@@ -135,7 +136,8 @@ export default function Home() {
             <div className=" w-full">
               <img src={featureImage} alt="" className=" w-full object-cover" />
             </div>
-          </div>
+          </div> */}
+          <Caradual />
         </div>
         <div className=" w-full flex justify-center ">
           <div className=" w-full px-5 xl:w-[1200px] 2xl:w-[1300px]">

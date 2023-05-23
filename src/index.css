@@ -1,3 +1,27 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.react-multi-carousel-list button,
+[type='button'] {
+    background-color: yellow;
+    border-radius: 0;
+}
+
+.react-multi-carousel-list button:hover {
+    background-color: yellow;
+}
+
+.react-multi-carousel-list button::before,
+::after {
+    color: black;
+}
+
+.react-multi-carousel-list .react-multiple-carousel__arrow--right {
+    right: calc(2% + 1px);
+}
+
+.react-multi-carousel-list .react-multiple-carousel__arrow--left {
+    left: calc(1% + 1px);
+}
