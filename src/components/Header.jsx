@@ -3,14 +3,15 @@ import { AiFillYoutube, AiOutlineInstagram, AiOutlineTwitter, AiOutlineMail, AiO
 import { FaSnapchatGhost } from "react-icons/fa"
 import { SiTiktok } from "react-icons/si"
 import { Link, useLocation } from "react-router-dom"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import SideNave from "./SideNave"
 
-export default function Header() {
+export default function Header({ Home }) {
 
   const location = useLocation()
   const [showSubHeader, setShowSubHeader] = useState(false)
   const [showSideNave, setShowSideNav] = useState(false)
+  const [scrollYvalue, setScrollYvalue] = useState(0)
 
 
   const toggleShowSidNav = () => {
@@ -18,6 +19,8 @@ export default function Header() {
   }
 
   window.addEventListener("scroll", () => {
+    setScrollYvalue(window.scrollY)
+
     if (window.scrollY > 200) {
       setShowSubHeader(true)
     } else {
@@ -25,8 +28,9 @@ export default function Header() {
     }
   })
 
+
   return (
-    <div className=" z-50 bg-white fixed top-0 left-0 w-screen border-t-4  border-yellow-200 flex justify-center">
+    <div className={` ${Home && scrollYvalue < 500 ? "-translate-y-52" : "translate-y-0"} transition-all duration-300 ease-in-out z-[1000] bg-white fixed top-0  left-0 w-full border-t-4  border-yellow-200 flex justify-center`}>
       {
         showSideNave &&
         <SideNave toggleShowSidNav={toggleShowSidNav} showSideNave={showSideNave} setShowSideNav={setShowSideNav} />

@@ -2,8 +2,8 @@ import kowThisPhoto from "../assets/kowthis.jpg"
 
 export default function Subscribtion({ page }) {
     return (
-        <div className=''>
-            <div className=' flex justify-between items-center'>
+        <div className=' w-full'>
+            <div className=' flex justify-between flex-wrap gap-5 items-center'>
                 <div>
                     <p className=' font-bold text-xl'>NowThis in Your Inbox</p>
                     <p className=' text-gray-600 text-sm'>Quickly get up to speed on the essential news stories you need to know about today.</p>

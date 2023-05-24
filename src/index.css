@@ -7,6 +7,7 @@
 [type='button'] {
     background-color: yellow;
     border-radius: 0;
+    z-index: 1;
 }
 
 .react-multi-carousel-list button:hover {
@@ -16,12 +17,15 @@
 .react-multi-carousel-list button::before,
 ::after {
     color: black;
+    z-index: 1;
 }
 
 .react-multi-carousel-list .react-multiple-carousel__arrow--right {
     right: calc(2% + 1px);
+    z-index: 1;
 }
 
 .react-multi-carousel-list .react-multiple-carousel__arrow--left {
     left: calc(1% + 1px);
+    z-index: 1;
 }

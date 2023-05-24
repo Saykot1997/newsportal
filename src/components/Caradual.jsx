@@ -16,60 +16,53 @@ export default function Caradual() {
         },
         tablet: {
             breakpoint: { max: 1024, min: 464 },
-            items: 2
+            items: 3
         },
         mobile: {
             breakpoint: { max: 464, min: 0 },
-            items: 1
+            items: 2
         }
     };
 
-    const CustomLeftArrow = ({ onClick }) => {
-        return (
-            <button onClick={onClick}>
-                <FaChevronLeft />
-            </button>
-        )
-    }
 
     return (
 
         <Carousel
             arrows={true}
             responsive={responsive}
-            className=" px-10"
+            className=" md:px-10"
         >
-            <div className=" h-80 mr-5">
+            <div className=" h-48 md:h-80 mr-5">
                 <img src={featureImage} alt="" className="" />
             </div>
-            <div className=" h-80 mr-5">
+            <div className=" h-48 md:h-80 mr-5">
                 <img src={featureImage} alt="" className="" />
             </div>
-            <div className=" h-80 mr-5">
+            <div className=" h-48 md:h-80 mr-5">
                 <img src={featureImage} alt="" className="" />
             </div>
-            <div className=" h-80 mr-5">
+            <div className=" h-48 md:h-80 mr-5">
                 <img src={featureImage} alt="" className="" />
             </div>
-            <div className=" h-80 mr-5">
+            <div className=" h-48 md:h-80 mr-5">
                 <img src={featureImage} alt="" className="" />
             </div>
-            <div className=" h-80 mr-5">
+            <div className=" h-48 md:h-80 mr-5">
                 <img src={featureImage} alt="" className="" />
             </div>
-            <div className=" h-80 mr-5">
+            <div className=" h-48 md:h-80 mr-5">
                 <img src={featureImage} alt="" className="" />
             </div>
-            <div className=" h-80 mr-5">
+            <div className=" h-48 md:h-80 mr-5">
                 <img src={featureImage} alt="" className="" />
             </div>
-            <div className=" h-80 mr-5">
+            <div className=" h-48 md:h-80 mr-5">
                 <img src={featureImage} alt="" className="" />
             </div>
-            <div className=" h-80 mr-5">
+            <div className=" h-48 md:h-80 mr-5">
                 <img src={featureImage} alt="" className="" />
             </div>
-            <div className=" h-80 mr-5">
+            <div className=" h-48 md:h-80 mr-5">
                 <img src={featureImage} alt="" className="" />
             </div>
         </Carousel>

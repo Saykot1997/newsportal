@@ -1,19 +1,18 @@
 import Footer from "../components/Footer";
-import Header from "../components/Header";
+import HomeHeader from "../components/HomeHeader";
 import NewsComponent from "../components/NewsComponent";
 import { Link } from "react-router-dom";
 import Subscribtion from "../components/Subscribtion";
 import mustWatchImage from "../assets/mustwatchhome.jpg"
 import heroImage from "../assets/hero.jpg"
-import featureImage from "../assets/features.jpg"
 import Caradual from "../components/Caradual";
 
 export default function Home() {
   return (
     <div className=" w-full">
-      <Header />
-      <div className=" w-full pt-28">
-        <div className=" w-full flex justify-center ">
+      <HomeHeader />
+      <div className=" w-full">
+        <div className="w-full flex justify-center ">
           <div className=" w-full px-5 xl:w-[1200px] 2xl:w-[1300px]">
             <div className=" grid grid-cols-4 gap-5">
               <div className=" col-span-4 lg:col-span-3">
@@ -120,23 +119,6 @@ export default function Home() {
         </div>
 
         <div className=" w-full py-10 bg-black my-10">
-          {/* <div className=" grid grid-cols-5 gap-5 pl-10 ">
-            <div className=" w-full">
-              <img src={featureImage} alt="" className=" w-full object-cover" />
-            </div>
-            <div className=" w-full">
-              <img src={featureImage} alt="" className=" w-full object-cover" />
-            </div>
-            <div className=" w-full">
-              <img src={featureImage} alt="" className=" w-full object-cover" />
-            </div>
-            <div className=" w-full">
-              <img src={featureImage} alt="" className=" w-full object-cover" />
-            </div>
-            <div className=" w-full">
-              <img src={featureImage} alt="" className=" w-full object-cover" />
-            </div>
-          </div> */}
           <Caradual />
         </div>
         <div className=" w-full flex justify-center ">
