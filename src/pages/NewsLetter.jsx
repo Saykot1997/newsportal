@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import Subscribtion from "../components/Subscribtion";
 
 
-export default function Culture() {
+export default function HalpingHand() {
     return (
         <div className=" w-full">
             <Header />
@@ -13,7 +13,7 @@ export default function Culture() {
                 <div className=" w-full flex justify-center ">
                     <div className=" w-full px-5 xl:w-[1200px] 2xl:w-[1300px]">
                         <div>
-                            <p className=" text-3xl font-extrabold border-b-4 py-5 mb-10 border-black">Culture</p>
+                            <p className=" text-3xl font-extrabold border-b-4 py-5 mb-10 border-black">News Letter</p>
                         </div>
                         <div className="grid grid-cols-3">
                             <div className=" col-span-3 lg:col-span-2">

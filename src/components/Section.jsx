@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { AiOutlinePlus } from "react-icons/ai"
 import { RiSubtractLine } from "react-icons/ri"
 import { Link } from 'react-router-dom'
@@ -13,7 +13,7 @@ export default function Section({ data }) {
     return (
         <div className=' py-5 border-b' >
             <div className='flex justify-between items-center cursor-pointer group' onClick={toggle}>
-                <span className=' font-semibold text-lg group-hover:text-gray-500 transition-all duration-75 ease-in'>{data.title}</span>
+                <span className=' font-semibold text-lg group-hover:text-gray-500 transition-all duration-75 ease-in'>{data.name}</span>
                 {
                     show ?
                         <RiSubtractLine className=' cursor-pointer' />
@@ -26,9 +26,9 @@ export default function Section({ data }) {
                 show &&
                 <div className=' pl-5'>
                     {
-                        data.options.map((option, index) => {
+                        data.submenu.map((option, index) => {
                             return (
-                                <Link key={index} to={option.link} className=' text-sm block first:pt-3 pb-3 hover:text-gray-500 transition-all duration-150 ease-in'>{option.title}</Link>
+                                <Link key={index} to={`/${option.slug}`} className=' text-sm block first:pt-3 pb-3 hover:text-gray-500 transition-all duration-150 ease-in capitalize'>{option.name}</Link>
                             )
                         })
                     }

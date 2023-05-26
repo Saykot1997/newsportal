@@ -1,0 +1,1 @@
+export const Host = "http://news.bglc.net"

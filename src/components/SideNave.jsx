@@ -1,14 +1,19 @@
 import { useEffect, useState } from "react"
-import { AiOutlineClose, AiOutlineMail, AiFillYoutube, AiOutlineInstagram, AiOutlineTwitter } from "react-icons/ai"
-import { BsFacebook } from "react-icons/bs"
-import { FaSnapchatGhost } from "react-icons/fa"
-import { SiTiktok } from "react-icons/si"
+import { AiOutlineClose, AiOutlineMail } from "react-icons/ai"
 import { Link } from "react-router-dom"
 import { GoSearch } from "react-icons/go"
 import Section from "./Section"
+import { useSelector } from "react-redux"
+import { Host } from "../../data"
 
 export default function SideNave({ showSideNave, setShowSideNav }) {
+
     const [right, setRight] = useState(true)
+    const menuData = useSelector((state) => state.MenuData.MenuData)
+    const SpecialMenu = useSelector((state) => state.SpecialMenu.SpecialMenu)
+    const SocialAppLink = useSelector((state) => state.SocialAppLink.SocialAppLink)
+    const companyInfo = useSelector((state) => state.CompanyInfo.CompanyInfo)
+
 
     useEffect(() => {
         setRight(false)
@@ -23,21 +28,24 @@ export default function SideNave({ showSideNave, setShowSideNav }) {
     })
 
 
-
-
     return (
         <div className=' z-[1000] w-full h-screen bg-black fixed top-0 left-0 bg-opacity-20 p-1 sm:p-5'>
             <div className="w-full h-full flex justify-end">
                 <div id="sidebar" className={` bg-white rounded-tl-xl rounded-bl-xl h-full overflow-y-scroll w-[360px] p-5 transition-all duration-300 ease-in-out ${right ? "translate-x-[450px]" : "translate-x-0"}`}>
                     <div className=" flex justify-between pb-3">
-                        <Link to="/">
-                            <span className=" font-semibold text-3xl">Logo</span>
-                        </Link>
+                        {
+                            companyInfo &&
+                            <Link to="/" className=" block">
+                                <img src={`${Host}/${companyInfo.logo}`} className="w-16" alt="" />
+                            </Link>
+                        }
                         <div className=" flex gap-3 items-center">
-                            <div className=" border px-2 py-[6px] cursor-pointer hover:bg-yellow-300 transition-all duration-150 ease-linear flex items-center">
-                                <AiOutlineMail className=" text-xs mr-1" />
-                                <span className=" text-[11px] font-bold">SUBSCRIB</span>
-                            </div>
+                            <Link to="/subscribtion">
+                                <div className=" border px-2 py-[6px] cursor-pointer hover:bg-yellow-300 transition-all duration-150 ease-linear flex items-center">
+                                    <AiOutlineMail className=" text-xs mr-1" />
+                                    <span className=" text-[11px] font-bold">SUBSCRIB</span>
+                                </div>
+                            </Link>
                             <div id="sidebarClose" className="cursor-pointer">
                                 <AiOutlineClose className=" text-lg " />
                             </div>
@@ -48,48 +56,29 @@ export default function SideNave({ showSideNave, setShowSideNav }) {
                         <GoSearch className=" absolute top-1/2 -translate-y-1/2 right-2 cursor-pointer transition-all duration-200 ease-in-out text-gray-600 group-hover:text-gray-950" />
                     </div>
                     <div>
-                        <Section data={{
-                            title: "Sections",
-                            options: [
-                                { title: "News", link: "/news" },
-                                { title: "Politics", link: "/politics" },
-                                { title: "Culture", link: "/culture" },
-                                { title: "Identity", link: "/identity" },
-                                { title: "Money", link: "/money" },
-                                { title: "Options", link: "/options" },
-                            ]
-                        }}
-                        />
-                        <Section
-                            data={{
-                                title: "Topics",
-                                options: [
-                                    { title: "LGBTQ+", link: "/lgbtq+" },
-                                    { title: "Sustainablity", link: "/sustainablity" },
-                                    { title: "Health", link: "/health" },
-                                    { title: "Feel Good", link: "/feel-good" },
-                                    { title: "Justic", link: "/justic" },
-                                ]
-                            }}
-                        />
-                        <Section
-                            data={{
-                                title: "Features",
-                                options: [
-                                    { title: "Can it save the planate", link: "/can-it-save-the-planate" },
-                                    { title: "Common Goods", link: "/common-goods" },
-                                    { title: "SEEN", link: "/seen" },
-                                    { title: "One Smaill Stap", link: "/one-small-stap" },
-                                    { title: "In The Toggether", link: "/in-the-together" },
-                                ]
-                            }}
-                        />
-                        <a href="http://youtube.com" target="_blank" rel="noopener noreferrer" className=" block py-5 border-b font-semibold text-lg hover:text-gray-500 transition-all duration-75 ease-in">
-                            Earth On Youtube
-                        </a>
-                        <Link to="/padcast" className=" block py-5 border-b font-semibold text-lg hover:text-gray-500 transition-all duration-75 ease-in">
-                            Padcast
-                        </Link>
+                        {
+                            menuData && menuData.map((menu, index) => {
+                                return (
+                                    <Section key={index} data={menu} />
+                                )
+                            })
+                        }
+                        {
+                            SpecialMenu && SpecialMenu.map((menu, index) => {
+
+                                if (menu.title.toLowerCase() === "podcasts") {
+                                    return (
+                                        <Link key={index} to="/podcast" className=" block py-5 border-b font-semibold text-lg hover:text-gray-500 transition-all duration-75 ease-in">Padcast</Link>
+                                    )
+                                } else {
+                                    return (
+                                        <a key={index} href={menu.link} target="_blank" rel="noopener noreferrer" className=" block py-5 border-b font-semibold text-lg hover:text-gray-500 transition-all duration-75 ease-in" >{menu.title}</a>
+                                    )
+                                }
+                            })
+                        }
+
+
                     </div>
                     <div className=" mt-5">
                         <p className=" font-semibold text-lg ">Subscrib to KnowThis</p>
@@ -99,29 +88,20 @@ export default function SideNave({ showSideNave, setShowSideNav }) {
                         <div className=" mt-5 flex items-center">
                             <input type="checkbox" className=" text-gray-400 checked:text-gray-400" />
                             <p className=" ml-2 text-gray-400 text-[12px]">I am 21+ years old</p>
-
                         </div>
                         <p className=" mt-1 text-[12px] text-gray-400">By signing up, I agree to the <span className=" underline">Terms</span> and <span className=" underline">Privete Policy</span></p>
                     </div>
                     <div className=" flex gap-5 my-5 text-xl">
-                        <a href="http://facebook.com" target="_blank" rel="noopener noreferrer">
-                            <BsFacebook />
-                        </a>
-                        <a href="http://instragram.com" target="_blank" rel="noopener noreferrer">
-                            <AiOutlineInstagram />
-                        </a>
-                        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-                            <AiOutlineTwitter />
-                        </a>
-                        <a href="https://story.snapchat.com" target="_blank" rel="noopener noreferrer">
-                            <FaSnapchatGhost />
-                        </a>
-                        <a href="http://youtube.com" target="_blank" rel="noopener noreferrer">
-                            <AiFillYoutube />
-                        </a>
-                        <a href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer">
-                            <SiTiktok />
-                        </a>
+
+                        {
+                            SocialAppLink && SocialAppLink.map((data, index) => {
+                                return (
+                                    <a key={index} href={data.link} target="_blank" rel="noopener noreferrer">
+                                        <i className={data.icon} aria-hidden="true"></i>
+                                    </a>
+                                )
+                            })
+                        }
                     </div>
                     <div className=" mt-5">
                         <p className=" text-[12px] text-gray-500 cursor-pointer">Cookie Settings</p>

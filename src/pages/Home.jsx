@@ -6,12 +6,26 @@ import Subscribtion from "../components/Subscribtion";
 import mustWatchImage from "../assets/mustwatchhome.jpg"
 import heroImage from "../assets/hero.jpg"
 import Caradual from "../components/Caradual";
+import { Host } from "../../data";
+import axios from "axios";
+
 
 export default function Home() {
+
+  const test = async () => {
+    try {
+      // const res = await axios.post(`${Host}/api/guest_register_store`)
+      const res = await axios.get(`${Host}/api/search?politics`)
+      console.log(res.data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   return (
     <div className=" w-full">
       <HomeHeader />
-      <div className=" w-full">
+      <div className=" mt-5 w-full">
         <div className="w-full flex justify-center ">
           <div className=" w-full px-5 xl:w-[1200px] 2xl:w-[1300px]">
             <div className=" grid grid-cols-4 gap-5">
@@ -30,6 +44,9 @@ export default function Home() {
                   </Link>
                 </div>
                 <hr className=" mt-8 mb-3" />
+                <div>
+                  <button onClick={test}>Click Me</button>
+                </div>
                 <div className=" w-full grid grid-cols-1 md:grid-cols-3 gap-5 mt-5">
                   <Link to="/news/details">
                     <div className=" group">
