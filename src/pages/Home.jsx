@@ -14,9 +14,9 @@ export default function Home() {
 
   const test = async () => {
     try {
-      // const res = await axios.post(`${Host}/api/guest_register_store`)
-      const res = await axios.get(`${Host}/api/search?politics`)
-      console.log(res.data)
+      // const res = await axios.post(`${Host}/api/guest_register_store?name=Saykot&email=saykothossain@gmail.com&password=12345678`)
+      const res = await axios.get(`http://news.bglc.net/api/`)
+      console.log(res)
     } catch (error) {
       console.log(error)
     }

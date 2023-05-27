@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { AiOutlineClose, AiOutlineMail } from "react-icons/ai"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { GoSearch } from "react-icons/go"
 import Section from "./Section"
 import { useSelector } from "react-redux"
@@ -13,7 +13,8 @@ export default function SideNave({ showSideNave, setShowSideNav }) {
     const SpecialMenu = useSelector((state) => state.SpecialMenu.SpecialMenu)
     const SocialAppLink = useSelector((state) => state.SocialAppLink.SocialAppLink)
     const companyInfo = useSelector((state) => state.CompanyInfo.CompanyInfo)
-
+    const [searchString, setSearchString] = useState("")
+    const navigation = useNavigate()
 
     useEffect(() => {
         setRight(false)
@@ -26,6 +27,11 @@ export default function SideNave({ showSideNave, setShowSideNav }) {
             setShowSideNav(false)
         }
     })
+
+    const SearchTheValue = () => {
+        navigation(`/search?SC=${searchString}`)
+
+    }
 
 
     return (
@@ -52,8 +58,8 @@ export default function SideNave({ showSideNave, setShowSideNav }) {
                         </div>
                     </div>
                     <div className=" w-full relative group my-5">
-                        <input type="text" placeholder="What are you looking for?" className=" bg-gray-50 group-hover:bg-gray-100 focus:bg-gray-100  p-2 w-full placeholder:text-sm focus:outline-none border-b border-b-transparent focus:border-b-blue-950 transition-transform duration-200 ease-in-out" />
-                        <GoSearch className=" absolute top-1/2 -translate-y-1/2 right-2 cursor-pointer transition-all duration-200 ease-in-out text-gray-600 group-hover:text-gray-950" />
+                        <input type="text" value={searchString} onChange={(e) => setSearchString(e.target.value)} placeholder="What are you looking for?" className=" bg-gray-50 group-hover:bg-gray-100 focus:bg-gray-100  p-2 w-full placeholder:text-sm focus:outline-none border-b border-b-transparent focus:border-b-blue-950 transition-transform duration-200 ease-in-out" />
+                        <GoSearch onClick={SearchTheValue} className=" absolute top-1/2 -translate-y-1/2 right-2 cursor-pointer transition-all duration-200 ease-in-out text-gray-600 group-hover:text-gray-950" />
                     </div>
                     <div>
                         {

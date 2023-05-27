@@ -17,14 +17,19 @@ import { headerSubmenuDataFatched } from "./redux/header_submenu_data_slice"
 import { companyInfoFatched } from "./redux/company_info_slice"
 import { socialAppLinkFatched } from "./redux/socal_app_link_slice"
 import { SpecialMenuFatched } from "./redux/special_menu_slice"
+import SearchPage from './pages/SearchPage';
 
 
 function App() {
 
   const dispatch = useDispatch()
-  // const SocialAppLink = useSelector((state) => state.SocialAppLink.SocialAppLink)
-  // console.log(SocialAppLink)
+  const CompanyInfo = useSelector((state) => state.CompanyInfo.CompanyInfo)
+  const SocialAppLink = useSelector((state) => state.SocialAppLink.SocialAppLink)
+  const HeaderSubMenuData = useSelector((state) => state.HeaderSubMenuData.HeaderSubMenuData)
+  const MenuData = useSelector((state) => state.MenuData.MenuData)
+  const SpecialMenu = useSelector((state) => state.SpecialMenu.SpecialMenu)
 
+  console.log({ CompanyInfo, SocialAppLink, HeaderSubMenuData, MenuData, SpecialMenu })
   const fatchMenuData = async () => {
     try {
       const res = await axios.get(`${Host}/api/website_menu_submenu`)
@@ -85,6 +90,7 @@ function App() {
         <Route path="/podcast" element={<Padcast />} />
         <Route path="/helping-hand" element={<HalpingHand />} />
         <Route path="/news-letter" element={<NewsLetter />} />
+        <Route path="/search" element={<SearchPage />} />
         <Route path="/subscribtion" element={<SubcriptionPage />} />
         <Route path="/news/details" element={<NewsDetails />} />
         <Route path="/politics/details" element={<PoliticsDetails />} />
