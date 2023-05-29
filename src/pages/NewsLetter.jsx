@@ -4,21 +4,23 @@ import NewsComponent from "../components/NewsComponent";
 import { Link, useLocation } from "react-router-dom";
 import Subscribtion from "../components/Subscribtion";
 import { Host } from "../../data";
-import { useEffect, useState } from "react";
 import axios from "axios";
+import { useEffect, useState } from "react";
+import LoadMoreButton from "../components/LoadMoreButton";
 
 
-export default function HalpingHand() {
+export default function NewsLetter() {
 
     const location = useLocation()
 
     const [pageData, setPageData] = useState(null)
+    const [displayData, setDisplayData] = useState([])
 
     const fatchPageData = async () => {
         try {
             const res = await axios.get(`${Host}/api/news${location.pathname}`)
             setPageData(res.data)
-            // console.log(res)
+            setDisplayData(res.data.post)
         } catch (error) {
             console.log(error)
         }
@@ -42,7 +44,7 @@ export default function HalpingHand() {
                         <div className="grid grid-cols-3">
                             <div className=" col-span-3 lg:col-span-2">
                                 {
-                                    pageData?.post.map((post, index) => {
+                                    displayData.map((post, index) => {
                                         return (
                                             <Link key={index} to="/news/details">
                                                 <NewsComponent post={post} />
@@ -51,9 +53,6 @@ export default function HalpingHand() {
                                     })
                                 }
                                 {/* <Link to="/news/details">
-                                    <NewsComponent />
-                                </Link>
-                                <Link to="/news/details">
                                     <NewsComponent />
                                 </Link>
                                 <Link to="/news/details">
@@ -85,9 +84,7 @@ export default function HalpingHand() {
                                 </Link> */}
                             </div>
                         </div>
-                        <div className=" ml-0 md:ml-32  lg:ml-56 mt-10">
-                            <button className=" bg-yellow-400 hover:bg-yellow-500 font-semibold py-2 md:px-28 lg:px-32 w-full md:w-auto">LOAD MORE</button>
-                        </div>
+                        <LoadMoreButton displayData={displayData} setDisplayData={setDisplayData} />
                     </div>
                 </div>
             </div>

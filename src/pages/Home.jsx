@@ -8,11 +8,15 @@ import heroImage from "../assets/hero.jpg"
 import Caradual from "../components/Caradual";
 import { Host } from "../../data";
 import axios from "axios";
+import { useEffect, useState } from "react";
+import LoadMoreButton from "../components/LoadMoreButton";
 
 
 export default function Home() {
 
-  const test = async () => {
+  const [displayData, setDisplayData] = useState([])
+
+  const fatchData = async () => {
     try {
       // const res = await axios.post(`${Host}/api/guest_register_store?name=Saykot&email=saykothossain@gmail.com&password=12345678`)
       const res = await axios.get(`http://news.bglc.net/api/`)
@@ -21,6 +25,11 @@ export default function Home() {
       console.log(error)
     }
   }
+
+  useEffect(() => {
+    fatchData()
+  }, [])
+
 
   return (
     <div className=" w-full">
@@ -44,9 +53,6 @@ export default function Home() {
                   </Link>
                 </div>
                 <hr className=" mt-8 mb-3" />
-                <div>
-                  <button onClick={test}>Click Me</button>
-                </div>
                 <div className=" w-full grid grid-cols-1 md:grid-cols-3 gap-5 mt-5">
                   <Link to="/news/details">
                     <div className=" group">
@@ -145,10 +151,14 @@ export default function Home() {
             </div>
             <div className="grid grid-cols-3">
               <div className=" col-span-3 lg:col-span-2">
-                <Link to="/news/details">
-                  <NewsComponent />
-                </Link>
-                <Link to="/news/details">
+                {
+                  displayData.map((post, index) => (
+                    <Link key={index} to="/news/details">
+                      <NewsComponent post={post} />
+                    </Link>
+                  ))
+                }
+                {/* <Link to="/news/details">
                   <NewsComponent />
                 </Link>
                 <Link to="/news/details">
@@ -177,12 +187,10 @@ export default function Home() {
                 </Link>
                 <Link to="/news/details">
                   <NewsComponent />
-                </Link>
+                </Link> */}
               </div>
             </div>
-            <div className=" ml-0 md:ml-32  lg:ml-56 mt-10">
-              <button className=" bg-yellow-400 hover:bg-yellow-500 font-semibold py-2 md:px-28 lg:px-32 w-full md:w-auto">LOAD MORE</button>
-            </div>
+            <LoadMoreButton displayData={displayData} setDisplayData={setDisplayData} />
           </div>
         </div>
       </div>

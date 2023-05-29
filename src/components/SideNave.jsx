@@ -5,6 +5,9 @@ import { GoSearch } from "react-icons/go"
 import Section from "./Section"
 import { useSelector } from "react-redux"
 import { Host } from "../../data"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import axios from "axios"
 
 export default function SideNave({ showSideNave, setShowSideNav }) {
 
@@ -15,6 +18,29 @@ export default function SideNave({ showSideNave, setShowSideNav }) {
     const companyInfo = useSelector((state) => state.CompanyInfo.CompanyInfo)
     const [searchString, setSearchString] = useState("")
     const navigation = useNavigate()
+
+
+    const [email, setEmail] = useState("")
+    const [checked, setChecked] = useState(false)
+
+    const Subscrive = async (e) => {
+        e.preventDefault()
+        if (!email) {
+            return toast.error("Please Enter Your Email")
+        }
+        if (!checked) {
+            return toast.error("Please Check the agreement field")
+        }
+        try {
+            const res = await axios.post(`${Host}/api/subcription`, { email })
+            setEmail("")
+            setChecked(false)
+            toast.success(res.data.Message)
+        } catch (error) {
+            toast.success(error.response.data.Message || "Something went wrong")
+            console.log(error)
+        }
+    }
 
     useEffect(() => {
         setRight(false)
@@ -86,17 +112,17 @@ export default function SideNave({ showSideNave, setShowSideNav }) {
 
 
                     </div>
-                    <div className=" mt-5">
+                    <form onSubmit={Subscrive} className=" mt-5">
                         <p className=" font-semibold text-lg ">Subscrib to KnowThis</p>
                         <p className=" text-[12px] text-gray-700 leading-5 mt-1">Quecly get up to speed on the essential news stories you need to know about today</p>
-                        <input type="text" placeholder="Type yout email address here" className=" bg-gray-100 group-hover:bg-gray-100 focus:bg-gray-100  p-2 w-full placeholder:text-sm focus:outline-none border-b border-b-transparent focus:border-b-blue-950 transition-transform duration-200 ease-in-out mt-3" />
-                        <button className=" uppercase bg-yellow-300 py-2 w-full mt-2 hover:bg-yellow-400 transition-all duration-200 ease-in-out">Subscribe</button>
+                        <input type="email" required value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Type yout email address here" className=" bg-gray-100 group-hover:bg-gray-100 focus:bg-gray-100  p-2 w-full placeholder:text-sm focus:outline-none border-b border-b-transparent focus:border-b-blue-950 transition-transform duration-200 ease-in-out mt-3" />
+                        <button className=" uppercase bg-yellow-300 py-2 w-full mt-2 hover:bg-yellow-400 transition-all duration-200 ease-in-out" >Subscribe</button>
                         <div className=" mt-5 flex items-center">
-                            <input type="checkbox" className=" text-gray-400 checked:text-gray-400" />
+                            <input type="checkbox" className=" text-gray-400 checked:text-gray-400" value={checked} checked={checked} onChange={(e) => setChecked(e.target.value)} />
                             <p className=" ml-2 text-gray-400 text-[12px]">I am 21+ years old</p>
                         </div>
                         <p className=" mt-1 text-[12px] text-gray-400">By signing up, I agree to the <span className=" underline">Terms</span> and <span className=" underline">Privete Policy</span></p>
-                    </div>
+                    </form>
                     <div className=" flex gap-5 my-5 text-xl">
 
                         {
@@ -133,6 +159,18 @@ export default function SideNave({ showSideNave, setShowSideNav }) {
                     </div>
                 </div>
             </div>
+            <ToastContainer
+                position="top-right"
+                autoClose={2000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="colored"
+            />
         </div>
     )
 }
