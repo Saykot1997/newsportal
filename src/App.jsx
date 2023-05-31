@@ -18,6 +18,8 @@ import { companyInfoFatched } from "./redux/company_info_slice"
 import { socialAppLinkFatched } from "./redux/socal_app_link_slice"
 import { SpecialMenuFatched } from "./redux/special_menu_slice"
 import SearchPage from './pages/SearchPage';
+import VideoPage from './pages/VideoPage';
+import VideoDetails from './pages/VideoDetails';
 
 
 function App() {
@@ -91,6 +93,8 @@ function App() {
         <Route path="/helping-hand" element={<HalpingHand />} />
         <Route path="/news-letter" element={<NewsLetter />} />
         <Route path="/search" element={<SearchPage />} />
+        <Route path="/videos" element={<VideoPage />} />
+        <Route path="/videos/details" element={<VideoDetails />} />
         <Route path="/subscribtion" element={<SubcriptionPage />} />
         <Route path="/news/details" element={<NewsDetails />} />
         <Route path="/politics/details" element={<PoliticsDetails />} />
