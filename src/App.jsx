@@ -21,6 +21,7 @@ import SearchPage from './pages/SearchPage';
 import VideoPage from './pages/VideoPage';
 import VideoDetails from './pages/VideoDetails';
 import Register from './pages/Register';
+import UploadVideo from './pages/UploadVideo';
 
 
 function App() {
@@ -89,6 +90,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/upload-video" element={<UploadVideo />} />
         <Route path="/news" element={<News />} />
         <Route path="/politics" element={<Politics />} />
         <Route path="/podcast" element={<Padcast />} />

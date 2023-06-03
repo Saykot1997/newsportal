@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import axios from 'axios'
@@ -21,9 +21,7 @@ export default function Register() {
             if (password !== confirmPassword) {
                 return toast.error("Password dose not patch")
             }
-            const res = await axios.get(`${Host}/api/guest_register_store?name=${name}&email=${email}&password=${password}`)
-            // setPageData(res.data)
-            // setDisplayData(res.data.post)
+            const res = await axios.post(`${Host}/api/guest_register_store?name=${name}&email=${email}&password=${password}`)
             setName("")
             setEmail("")
             setPassword("")
@@ -36,7 +34,6 @@ export default function Register() {
         }
     }
 
-    "http://news.bglc.net/api/guest_register_store?name=Sayeed&email=helloworld@gmail.com&password=12345678"
     return (
         <div className=" w-full">
             <Header />

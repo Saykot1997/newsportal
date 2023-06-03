@@ -7,6 +7,7 @@ import Header from "./Header"
 import { useSelector } from "react-redux"
 import { Host } from "../../data"
 import { GiArchiveRegister } from "react-icons/gi"
+import { BsCloudUploadFill } from "react-icons/bs"
 
 export default function HomeHeader() {
 
@@ -71,6 +72,9 @@ export default function HomeHeader() {
                         <div className=" flex items-center gap-3">
                             <Link to="/register">
                                 <GiArchiveRegister className=" mr-1 cursor-pointer" />
+                            </Link>
+                            <Link to="/upload-video">
+                                <BsCloudUploadFill className=" ml-1 cursor-pointer" />
                             </Link>
                             <Link to="/subscribtion">
                                 <div className=" border px-2 py-[6px] cursor-pointer hover:bg-yellow-300 transition-all duration-150 ease-linear flex items-center">

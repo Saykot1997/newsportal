@@ -1,5 +1,5 @@
 import { AiOutlineMail, AiOutlineMenu, AiOutlinePlus } from "react-icons/ai"
-
+import { BsCloudUploadFill } from "react-icons/bs"
 import { Link, useLocation } from "react-router-dom"
 import { useState } from "react"
 import SideNave from "./SideNave"
@@ -66,6 +66,9 @@ export default function Header({ Home }) {
             </div>
             <Link to="/register">
               <GiArchiveRegister className=" ml-1 cursor-pointer" />
+            </Link>
+            <Link to="/upload-video">
+              <BsCloudUploadFill className=" ml-1 cursor-pointer" />
             </Link>
             <Link to="/subscribtion">
               <div className=" border px-2 py-[6px] cursor-pointer hover:bg-yellow-300 transition-all duration-150 ease-linear flex items-center">
