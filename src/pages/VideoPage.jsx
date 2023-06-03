@@ -12,6 +12,8 @@ import VideoComponent from "../components/VideoComponent";
 
 export default function VideoPost() {
 
+
+
     const location = useLocation()
 
     const [pageData, setPageData] = useState(null)
@@ -19,7 +21,7 @@ export default function VideoPost() {
 
     const fatchPageData = async () => {
         try {
-            const res = await axios.get(`${Host}/api/videos`)
+            const res = await axios.get(`${Host}/api/news/videos`)
             // setPageData(res.data)
             // setDisplayData(res.data.post)
             console.log(res.data)
@@ -27,6 +29,8 @@ export default function VideoPost() {
             console.log(error)
         }
     }
+
+
 
     useEffect(() => {
         fatchPageData()

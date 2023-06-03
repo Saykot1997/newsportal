@@ -5,6 +5,7 @@ import { useState } from "react"
 import SideNave from "./SideNave"
 import { useSelector } from "react-redux"
 import { Host } from "../../data"
+import { GiArchiveRegister } from "react-icons/gi"
 
 
 export default function Header({ Home }) {
@@ -63,6 +64,9 @@ export default function Header({ Home }) {
                 })
               }
             </div>
+            <Link to="/register">
+              <GiArchiveRegister className=" ml-1 cursor-pointer" />
+            </Link>
             <Link to="/subscribtion">
               <div className=" border px-2 py-[6px] cursor-pointer hover:bg-yellow-300 transition-all duration-150 ease-linear flex items-center">
                 <AiOutlineMail className=" text-xs mr-1" />

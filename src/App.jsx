@@ -20,6 +20,7 @@ import { SpecialMenuFatched } from "./redux/special_menu_slice"
 import SearchPage from './pages/SearchPage';
 import VideoPage from './pages/VideoPage';
 import VideoDetails from './pages/VideoDetails';
+import Register from './pages/Register';
 
 
 function App() {
@@ -87,6 +88,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/register" element={<Register />} />
         <Route path="/news" element={<News />} />
         <Route path="/politics" element={<Politics />} />
         <Route path="/podcast" element={<Padcast />} />
