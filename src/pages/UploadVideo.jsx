@@ -7,6 +7,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { AiOutlineClose } from 'react-icons/ai'
 import FileUploader from '../components/FileUploader'
+import FormGroup from "../components/FormGroup"
 
 export default function UploadVideo() {
     const [firstName, setFirstName] = useState("")
@@ -79,50 +80,17 @@ export default function UploadVideo() {
                         <p className=" text-2xl font-semibold text-center">Upload Video</p>
                         <div className=' w-full flex justify-center'>
                             <form onSubmit={handleRegister} className=' w-full lg:w-[600px] mt-5'>
-                                <div className=' w-full relative mt-3'>
-                                    <label htmlFor="" className='lable' >First Name: </label>
-                                    <input type="text" required value={firstName} placeholder='First Name' onChange={(e) => setFirstName(e.target.value)} className=" bg-gray-100 focus:bg-gray-100  p-2 w-full placeholder:text-sm focus:outline-none border-b border-b-transparent focus:border-b-blue-950 transition-transform duration-200 ease-in-out" />
-                                </div>
-                                <div className=' w-full relative mt-5'>
-                                    <label htmlFor="" className='lable' >Family Name: </label>
-                                    <input type="text" placeholder='Family Name' required value={familyName} onChange={(e) => setFamilyName(e.target.value)} className=" bg-gray-100 focus:bg-gray-100  p-2 w-full placeholder:text-sm focus:outline-none border-b border-b-transparent focus:border-b-blue-950 transition-transform duration-200 ease-in-out" />
-                                </div>
-                                <div className=' w-full relative mt-5'>
-                                    <label htmlFor="" className='lable'>Email :</label>
-                                    <input type="email" required value={email} placeholder='Email' onChange={(e) => setEmail(e.target.value)} className=" bg-gray-100 focus:bg-gray-100  p-2 w-full placeholder:text-sm focus:outline-none border-b border-b-transparent focus:border-b-blue-950 transition-transform duration-200 ease-in-out" />
-                                </div>
-                                <div className=' w-full relative mt-5'>
-                                    <label htmlFor="" className='lable' >Age</label>
-                                    <input type="number" placeholder='Age' required value={age} onChange={(e) => setAge(e.target.value)} className=" bg-gray-100 focus:bg-gray-100  p-2 w-full placeholder:text-sm focus:outline-none border-b border-b-transparent focus:border-b-blue-950 transition-transform duration-200 ease-in-out" />
-                                </div>
-                                <div className=' w-full relative mt-5'>
-                                    <label htmlFor="" className='lable'>Phone :</label>
-                                    <input type="number" placeholder='Phone' required value={phone} onChange={(e) => setPhone(e.target.value)} className=" bg-gray-100 focus:bg-gray-100  p-2 w-full placeholder:text-sm focus:outline-none border-b border-b-transparent focus:border-b-blue-950 transition-transform duration-200 ease-in-out" />
-                                </div>
-                                <div className=' w-full relative mt-5'>
-                                    <label htmlFor="" className='lable' >Video Yourself :</label>
-                                    <input type="text" required value={videoYourself} placeholder='Video Yourself' onChange={(e) => setVideoYourSelf(e.target.value)} className=" bg-gray-100 focus:bg-gray-100  p-2 w-full placeholder:text-sm focus:outline-none border-b border-b-transparent focus:border-b-blue-950 transition-transform duration-200 ease-in-out" />
-                                </div>
-                                <div className=' w-full relative mt-5'>
-                                    <label htmlFor="" className='lable' >Any Where :</label>
-                                    <input type="text" placeholder='Any Where' required value={anyWhere} onChange={(e) => setAnyWhere(e.target.value)} className=" bg-gray-100 focus:bg-gray-100  p-2 w-full placeholder:text-sm focus:outline-none border-b border-b-transparent focus:border-b-blue-950 transition-transform duration-200 ease-in-out" />
-                                </div>
-                                <div className=' w-full relative mt-5'>
-                                    <label htmlFor="" className='lable' >License :</label>
-                                    <input type="text" required value={license} placeholder='License' onChange={(e) => setLicense(e.target.value)} className=" bg-gray-100 focus:bg-gray-100  p-2 w-full placeholder:text-sm focus:outline-none border-b border-b-transparent focus:border-b-blue-950 transition-transform duration-200 ease-in-out" />
-                                </div>
-                                <div className=' w-full relative mt-5'>
-                                    <label htmlFor="" className='lable'>About :</label>
-                                    <input type="text" required value={about} placeholder='About' onChange={(e) => setAbout(e.target.value)} className=" bg-gray-100 focus:bg-gray-100  p-2 w-full placeholder:text-sm focus:outline-none border-b border-b-transparent focus:border-b-blue-950 transition-transform duration-200 ease-in-out" />
-                                </div>
-                                <div className=' w-full relative mt-5'>
-                                    <label htmlFor="" className='lable'>Status :</label>
-                                    <input type="text" required value={status} placeholder='Status' onChange={(e) => setStatus(e.target.value)} className=" bg-gray-100 focus:bg-gray-100  p-2 w-full placeholder:text-sm focus:outline-none border-b border-b-transparent focus:border-b-blue-950 transition-transform duration-200 ease-in-out" />
-                                </div>
-                                <div className=' w-full relative mt-5'>
-                                    <label htmlFor="" className='lable' >Signature</label>
-                                    <input type="text" required value={signature} placeholder='Signature' onChange={(e) => setSignature(e.target.value)} className=" bg-gray-100 focus:bg-gray-100  p-2 w-full placeholder:text-sm focus:outline-none border-b border-b-transparent focus:border-b-blue-950 transition-transform duration-200 ease-in-out" />
-                                </div>
+                                <FormGroup label="First Name" id="firstName" inputValue={firstName} setInputValue={setFirstName} />
+                                <FormGroup label="Family Name" id="familyName" inputValue={familyName} setInputValue={setFamilyName} />
+                                <FormGroup label="Email" id="email" inputValue={email} setInputValue={setEmail} />
+                                <FormGroup label="Age" id="age" inputValue={age} setInputValue={setAge} />
+                                <FormGroup label="Phone" id="phone" inputValue={phone} setInputValue={setPhone} />
+                                <FormGroup label="Video Yourself" id="videoYourself" inputValue={videoYourself} setInputValue={setVideoYourSelf} />
+                                <FormGroup label="Any Where" id="anyWhere" inputValue={anyWhere} setInputValue={setAnyWhere} />
+                                <FormGroup label="License" id="license" inputValue={license} setInputValue={setLicense} />
+                                <FormGroup label="About" id="about" inputValue={about} setInputValue={setAbout} />
+                                <FormGroup label="Status" id="status" inputValue={status} setInputValue={setStatus} />
+                                <FormGroup label="Signature" id="signature" inputValue={signature} setInputValue={setSignature} />
 
                                 <div className=' mt-3 w-full'>
                                     <p className='font-medium text-gray-700 text-[12px] sm:text-sm mb-1'>Attach File</p>
@@ -139,7 +107,6 @@ export default function UploadVideo() {
                                             </div>
                                             :
                                             <FileUploader file={file} setFile={setFile} />
-
                                     }
                                     <p className=' text-gray-500 text-sm mt-2'>Accepted File Type: .mp4, .mkv </p>
                                 </div>
